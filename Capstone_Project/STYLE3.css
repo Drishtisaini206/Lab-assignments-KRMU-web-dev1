@@ -1,0 +1,240 @@
+/* VARIABLES */
+:root {
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --accent: #2b8dd6;
+    --primary: #ff9f1c;
+    --muted: #6b7280;
+    --radius: 14px;
+    --shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+    --max-width: 1200px;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: #0f172a;
+    line-height: 1.6;
+}
+
+/* REUSABLE */
+.container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+}
+
+.small { font-size: .9rem; }
+.muted { color: var(--muted); }
+
+.btn {
+    background: var(--accent);
+    border: none;
+    padding: .6rem 1.1rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn.secondary {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+.small-btn { padding: .4rem .8rem; }
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-family: 'Playfair Display';
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+}
+nav a:hover {
+    color: var(--accent);
+}
+
+/* HERO */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=60");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    padding: 3rem;
+    color: white;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.hero-inner {
+    max-width: 700px;
+}
+
+.eyebrow {
+    background: rgba(255,255,255,0.25);
+    padding: .3rem .6rem;
+    border-radius: 20px;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-family: 'Playfair Display';
+}
+
+.search {
+    margin-top: 1rem;
+    background: rgba(255,255,255,0.9);
+    padding: .8rem;
+    border-radius: 12px;
+    display: flex;
+    gap: .5rem;
+}
+.search select, 
+.search input {
+    border: none;
+    background: transparent;
+    padding: .4rem;
+    outline: none;
+    flex: 1;
+}
+
+/* DESTINATIONS */
+.dest-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.dest {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: .2s ease;
+}
+.dest:hover {
+    transform: translateY(-5px);
+}
+.dest img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: .6rem;
+}
+
+/* PACKAGES */
+.packages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.package {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* REVIEWS */
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.review {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ITINERARY + FORM */
+.split {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+.itinerary, .inquiry {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.inquiry form {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.inquiry input,
+.inquiry textarea,
+.inquiry select {
+    padding: .6rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .dest-grid, .packages, .reviews {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .split {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-wrap: wrap;
+    }
+    .dest-grid, .packages, .reviews {
+        grid-template-columns: 1fr;
+    }
+}
