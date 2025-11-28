@@ -1,0 +1,257 @@
+/* --- Global Styles and Relative Units --- */
+:root {
+    /* Define primary colors */
+    --primary-color: #007bff; /* A nice blue for highlights/buttons */
+    --secondary-color: #6c757d; /* A gray for subtext */
+    --background-color: #f8f9fa; /* Light background */
+    --text-color: #212529; /* Dark text */
+    --card-background: #ffffff; /* White card background */
+    /* Set base font size for 'rem' unit scaling */
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em; /* Use em for spacing related to the element's font size */
+}
+
+/* Use rem for consistent, scalable font sizes */
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.2rem; }
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease; [span_0](start_span)[span_1](start_span)/* CSS Transition for hover effects[span_0](end_span)[span_1](end_span) */
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+section {
+    padding: 4vh 5vw; [span_2](start_span)/* Use vh/vw for responsive vertical and horizontal padding[span_2](end_span) */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* --- Header & Navigation (Using Flexbox) --- */
+header {
+    background-color: var(--card-background);
+    padding: 1rem 5vw;
+    border-bottom: 1px solid #dee2e6;
+    [span_3](start_span)[span_4](start_span)/* Flexbox for alignment in the header[span_3](end_span)[span_4](end_span) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    [span_5](start_span)[span_6](start_span)/* Flexbox for horizontal navigation links[span_5](end_span)[span_6](end_span) */
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    font-weight: bold;
+    padding: 0.5rem 0.5rem;
+    position: relative;
+    /* Adding a subtle border-bottom transition on hover */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section (Using Flexbox) --- */
+#hero {
+    background-color: var(--background-color);
+    text-align: center;
+    padding: 10vh 5vw;
+}
+
+#hero h2 {
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+#hero p {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+}
+
+/* --- About Section (Using Flexbox for desktop) --- */
+#about {
+    [span_7](start_span)[span_8](start_span)/* Use Flexbox to align image and text for larger screens[span_7](end_span)[span_8](end_span) */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background-color: var(--card-background);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+#about img {
+    border-radius: 50%;
+    width: 12.5rem; /* Use rem for an image size that scales with the root font size */
+    height: 12.5rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* --- Projects Section (Using CSS Grid) --- */
+#projects ul {
+    list-style: none;
+    padding: 0;
+    [span_9](start_span)[span_10](start_span)/* CSS Grid for structured section layout[span_9](end_span)[span_10](end_span) */
+    display: grid;
+    /* Three columns on desktop */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+#projects li {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; [span_11](start_span)[span_12](start_span)/* Transition for interactive elements[span_11](end_span)[span_12](end_span) */
+}
+
+#projects li:hover {
+    transform: translateY(-5px); [span_13](start_span)[span_14](start_span)/* CSS Transform on hover[span_13](end_span)[span_14](end_span) */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* --- Skills Section --- */
+#skills table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#skills th, #skills td {
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+    text-align: left;
+}
+
+#skills th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Contact Form --- */
+#contact form {
+    max-width: 400px;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#contact textarea {
+    resize: vertical;
+}
+
+#contact input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#contact input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.02); /* Subtle transform on button hover */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1rem 5vw;
+    background-color: var(--text-color);
+    color: white;
+    font-size: 0.875rem; /* Smaller font size using rem */
+}
+
+/* --- Media Queries for Responsiveness (Mobile-First Approach) --- */
+/* Mobile layout is the default. Now we adjust for tablets and desktops. */
+
+[span_15](start_span)[span_16](start_span)/* Tablet and larger screens (min-width: 768px)[span_15](end_span)[span_16](end_span) */
+@media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    #hero {
+        text-align: left;
+        padding: 15vh 5vw;
+    }
+    #about {
+        /* Reverse the layout for the about section */
+        flex-direction: row-reverse;
+    }
+}
+
+[span_17](start_span)[span_18](start_span)/* Desktop screens (min-width: 1024px)[span_17](end_span)[span_18](end_span) */
+@media (min-width: 1024px) {
+    header {
+        padding: 1rem 10vw;
+    }
+    section {
+        padding: 8vh 10vw;
+    }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+}
